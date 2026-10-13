@@ -1,0 +1,8 @@
+*
+!*/
+!.gitignore
+!README.md
+!Dockerfile
+!docker-compose.yaml
+!.env.example
+!conf/Caddyfile.example

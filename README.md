@@ -223,7 +223,7 @@ Run these in `/srv/caddy`:
 
 A "not formatted" warning from `validate` is cosmetic. `caddy fmt /etc/caddy/Caddyfile` prints the corrected version.
 
-Once the staging certificate works, delete the global block and run `sudo docker compose restart caddy` for a real certificate.
+Once the staging certificate works, delete the global block and run `sudo docker compose reload caddy` for a real certificate.
 
 ## 5. Pi-hole wildcard
 
@@ -263,6 +263,7 @@ dig +short app.example.com @127.0.0.1
 - The pihole-unbound-docker `.gitignore` already keeps the override file out of Git.
 - **Do this on every Pi-hole.** Sync tools that copy lists and Local DNS records don't copy this setting.
 - A typo here can stop Pi-hole's DNS. Change one Pi-hole, test it, then the next.
+- The rule only changes name-to-IP answers. Other lookups for the domain, like the ones Caddy uses to check its certificate challenge, still reach the real DNS, so the Caddy machine works fine even if it uses Pi-hole.
 
 ## 6. Day-to-day and updates
  
@@ -316,6 +317,7 @@ caddy/
 ├── docker-compose.yaml
 ├── .env.example            # template, committed
 ├── .env                    # your AWS keys and zone ID; never committed
+├── LICENSE
 └── conf/
     ├── Caddyfile.example   # template, committed
     └── Caddyfile           # your domain, services and IPs; never committed

@@ -223,7 +223,7 @@ Run these in `/srv/caddy`:
 
 A "not formatted" warning from `validate` is cosmetic. `caddy fmt /etc/caddy/Caddyfile` prints the corrected version.
 
-Once the staging certificate works, delete the global block and run `sudo docker compose restart caddy` for a real certificate.
+Once the staging certificate works, delete the global block and run `sudo docker compose exec -w /etc/caddy caddy caddy reload` for a real certificate.
 
 ## 5. Pi-hole wildcard
 
@@ -332,6 +332,7 @@ caddy/
 !README.md
 !Dockerfile
 !docker-compose.yaml
+!LICENSE
 !.env.example
 !conf/Caddyfile.example
 ```

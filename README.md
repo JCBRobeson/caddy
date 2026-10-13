@@ -30,6 +30,8 @@ browser asks for app.example.com
 
 **Why outsiders can't reach it:** the service names exist only in your Pi-hole, never in public DNS, nothing is forwarded from the router, and Caddy sits on a private address.
 
+Docker also publishes these ports on IPv6, so this relies on your router's IPv6 firewall blocking inbound traffic, the same as for any other machine on your network.
+
 ## What you need
 
 - Pi-hole (ideally two) from pihole-unbound-docker
@@ -108,7 +110,7 @@ cp conf/Caddyfile.example conf/Caddyfile
 
 The repo only holds templates. Your real `.env` and `conf/Caddyfile` are copies that Git ignores, so `git pull` never touches them and `git add .` can't publish them.
 
-Or if you like doing it yourself, do the below.
+Or build it by hand (the next sections show each file):
 
 ```bash
 sudo mkdir -p /srv/caddy/conf

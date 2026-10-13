@@ -4,5 +4,6 @@
 !README.md
 !Dockerfile
 !docker-compose.yaml
+!LICENSE
 !.env.example
 !conf/Caddyfile.example

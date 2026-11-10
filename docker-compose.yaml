@@ -19,3 +19,8 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
